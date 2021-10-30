@@ -8,9 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var chatViewModel = ChatViewModel()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            HStack{
+            Text("HELLO")
+                Spacer()
+            }
+            Button("connect to ryan"){
+                chatViewModel.connect(to: "itsRyanHiga")
+                chatViewModel.chats.append(ChatModel(id: UUID(), userName: "aahtest", message: "POGGERs"))
+            }
+            ScrollView {
+                ForEach(chatViewModel.chats){ chat in
+                    Text(chat.message)
+                }
+            }
+            .onChange(of: chatViewModel.currentStatus) { newValue in
+                print(newValue)
+            }
+        }
     }
 }
 

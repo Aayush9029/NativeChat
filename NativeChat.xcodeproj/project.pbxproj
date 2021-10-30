@@ -11,6 +11,8 @@
 		C21C24E8272DB498005F19AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C24E7272DB498005F19AB /* ContentView.swift */; };
 		C21C24EA272DB498005F19AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21C24E9272DB498005F19AB /* Assets.xcassets */; };
 		C21C24ED272DB498005F19AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21C24EC272DB498005F19AB /* Preview Assets.xcassets */; };
+		C21C24FB272DB527005F19AB /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C24FA272DB527005F19AB /* ChatViewModel.swift */; };
+		C21C24FD272DB67D005F19AB /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C24FC272DB67D005F19AB /* ChatModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		C21C24E9272DB498005F19AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C21C24EC272DB498005F19AB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C21C24EE272DB498005F19AB /* NativeChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NativeChat.entitlements; sourceTree = "<group>"; };
+		C21C24FA272DB527005F19AB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		C21C24FC272DB67D005F19AB /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +42,7 @@
 			children = (
 				C21C24E4272DB498005F19AB /* NativeChat */,
 				C21C24E3272DB498005F19AB /* Products */,
+				C221A687272DB9F400B78E53 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +59,9 @@
 			children = (
 				C21C24E5272DB498005F19AB /* NativeChatApp.swift */,
 				C21C24E7272DB498005F19AB /* ContentView.swift */,
+				C21C24F7272DB4DE005F19AB /* Views */,
+				C21C24F9272DB4E6005F19AB /* ViewModel */,
+				C21C24F8272DB4E3005F19AB /*  Model */,
 				C21C24E9272DB498005F19AB /* Assets.xcassets */,
 				C21C24EE272DB498005F19AB /* NativeChat.entitlements */,
 				C21C24EB272DB498005F19AB /* Preview Content */,
@@ -67,6 +75,36 @@
 				C21C24EC272DB498005F19AB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C21C24F7272DB4DE005F19AB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C21C24F8272DB4E3005F19AB /*  Model */ = {
+			isa = PBXGroup;
+			children = (
+				C21C24FC272DB67D005F19AB /* ChatModel.swift */,
+			);
+			path = " Model";
+			sourceTree = "<group>";
+		};
+		C21C24F9272DB4E6005F19AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C21C24FA272DB527005F19AB /* ChatViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C221A687272DB9F400B78E53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +123,8 @@
 			dependencies = (
 			);
 			name = NativeChat;
+			packageProductDependencies = (
+			);
 			productName = NativeChat;
 			productReference = C21C24E2272DB498005F19AB /* NativeChat.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +153,8 @@
 				Base,
 			);
 			mainGroup = C21C24D9272DB498005F19AB;
+			packageReferences = (
+			);
 			productRefGroup = C21C24E3272DB498005F19AB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,7 +182,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C21C24E8272DB498005F19AB /* ContentView.swift in Sources */,
+				C21C24FB272DB527005F19AB /* ChatViewModel.swift in Sources */,
 				C21C24E6272DB498005F19AB /* NativeChatApp.swift in Sources */,
+				C21C24FD272DB67D005F19AB /* ChatModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
