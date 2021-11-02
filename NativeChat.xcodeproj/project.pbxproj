@@ -11,8 +11,16 @@
 		C21C24E8272DB498005F19AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C24E7272DB498005F19AB /* ContentView.swift */; };
 		C21C24EA272DB498005F19AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21C24E9272DB498005F19AB /* Assets.xcassets */; };
 		C21C24ED272DB498005F19AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21C24EC272DB498005F19AB /* Preview Assets.xcassets */; };
-		C21C24FB272DB527005F19AB /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C24FA272DB527005F19AB /* ChatViewModel.swift */; };
-		C21C24FD272DB67D005F19AB /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C24FC272DB67D005F19AB /* ChatModel.swift */; };
+		C2637AEB272E0450003AEB89 /* SharedStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2637AEA272E0450003AEB89 /* SharedStatus.swift */; };
+		C2FC77852730F50A00DD7F32 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC77842730F50A00DD7F32 /* UserModel.swift */; };
+		C2FC778A2730FB0F00DD7F32 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C24FA272DB527005F19AB /* ChatViewModel.swift */; };
+		C2FC778D2730FB9B00DD7F32 /* IRCServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC778C2730FB9B00DD7F32 /* IRCServer.swift */; };
+		C2FC778F2730FBB400DD7F32 /* IRCChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC778E2730FBB400DD7F32 /* IRCChannel.swift */; };
+		C2FC77912730FC4400DD7F32 /* IRCInputParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC77902730FC4400DD7F32 /* IRCInputParser.swift */; };
+		C2FC77932730FC6E00DD7F32 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC77922730FC6E00DD7F32 /* ChatModel.swift */; };
+		C2FC77952731010F00DD7F32 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC77942731010F00DD7F32 /* Constants.swift */; };
+		C2FC7797273102D500DD7F32 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC7796273102D500DD7F32 /* ChatView.swift */; };
+		C2FC7799273102DF00DD7F32 /* ChatRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC7798273102DF00DD7F32 /* ChatRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +31,15 @@
 		C21C24EC272DB498005F19AB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C21C24EE272DB498005F19AB /* NativeChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NativeChat.entitlements; sourceTree = "<group>"; };
 		C21C24FA272DB527005F19AB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
-		C21C24FC272DB67D005F19AB /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		C2637AEA272E0450003AEB89 /* SharedStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStatus.swift; sourceTree = "<group>"; };
+		C2FC77842730F50A00DD7F32 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		C2FC778C2730FB9B00DD7F32 /* IRCServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRCServer.swift; sourceTree = "<group>"; };
+		C2FC778E2730FBB400DD7F32 /* IRCChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRCChannel.swift; sourceTree = "<group>"; };
+		C2FC77902730FC4400DD7F32 /* IRCInputParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRCInputParser.swift; sourceTree = "<group>"; };
+		C2FC77922730FC6E00DD7F32 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		C2FC77942731010F00DD7F32 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C2FC7796273102D500DD7F32 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		C2FC7798273102DF00DD7F32 /* ChatRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +75,11 @@
 			children = (
 				C21C24E5272DB498005F19AB /* NativeChatApp.swift */,
 				C21C24E7272DB498005F19AB /* ContentView.swift */,
+				C2FC779C273108B000DD7F32 /* Extensions */,
 				C21C24F7272DB4DE005F19AB /* Views */,
 				C21C24F9272DB4E6005F19AB /* ViewModel */,
 				C21C24F8272DB4E3005F19AB /*  Model */,
+				C2FC778B2730FB8500DD7F32 /* IRCServer */,
 				C21C24E9272DB498005F19AB /* Assets.xcassets */,
 				C21C24EE272DB498005F19AB /* NativeChat.entitlements */,
 				C21C24EB272DB498005F19AB /* Preview Content */,
@@ -80,6 +98,8 @@
 		C21C24F7272DB4DE005F19AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C2FC7796273102D500DD7F32 /* ChatView.swift */,
+				C2FC7798273102DF00DD7F32 /* ChatRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -87,7 +107,10 @@
 		C21C24F8272DB4E3005F19AB /*  Model */ = {
 			isa = PBXGroup;
 			children = (
-				C21C24FC272DB67D005F19AB /* ChatModel.swift */,
+				C2FC77922730FC6E00DD7F32 /* ChatModel.swift */,
+				C2637AEA272E0450003AEB89 /* SharedStatus.swift */,
+				C2FC77842730F50A00DD7F32 /* UserModel.swift */,
+				C2FC77942731010F00DD7F32 /* Constants.swift */,
 			);
 			path = " Model";
 			sourceTree = "<group>";
@@ -105,6 +128,23 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2FC778B2730FB8500DD7F32 /* IRCServer */ = {
+			isa = PBXGroup;
+			children = (
+				C2FC778C2730FB9B00DD7F32 /* IRCServer.swift */,
+				C2FC778E2730FBB400DD7F32 /* IRCChannel.swift */,
+				C2FC77902730FC4400DD7F32 /* IRCInputParser.swift */,
+			);
+			path = IRCServer;
+			sourceTree = "<group>";
+		};
+		C2FC779C273108B000DD7F32 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,10 +221,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2637AEB272E0450003AEB89 /* SharedStatus.swift in Sources */,
+				C2FC778F2730FBB400DD7F32 /* IRCChannel.swift in Sources */,
 				C21C24E8272DB498005F19AB /* ContentView.swift in Sources */,
-				C21C24FB272DB527005F19AB /* ChatViewModel.swift in Sources */,
+				C2FC7799273102DF00DD7F32 /* ChatRowView.swift in Sources */,
 				C21C24E6272DB498005F19AB /* NativeChatApp.swift in Sources */,
-				C21C24FD272DB67D005F19AB /* ChatModel.swift in Sources */,
+				C2FC7797273102D500DD7F32 /* ChatView.swift in Sources */,
+				C2FC77912730FC4400DD7F32 /* IRCInputParser.swift in Sources */,
+				C2FC77952731010F00DD7F32 /* Constants.swift in Sources */,
+				C2FC778A2730FB0F00DD7F32 /* ChatViewModel.swift in Sources */,
+				C2FC77852730F50A00DD7F32 /* UserModel.swift in Sources */,
+				C2FC778D2730FB9B00DD7F32 /* IRCServer.swift in Sources */,
+				C2FC77932730FC6E00DD7F32 /* ChatModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +367,10 @@
 				DEVELOPMENT_TEAM = 4538W4A79B;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -346,6 +398,10 @@
 				DEVELOPMENT_TEAM = 4538W4A79B;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (

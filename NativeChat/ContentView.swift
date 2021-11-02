@@ -9,25 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var chatViewModel = ChatViewModel()
-    
     var body: some View {
-        VStack {
-            HStack{
-            Text("HELLO")
-                Spacer()
+        VStack{
+            Button("connect to moistcr1tikal"){
+                chatViewModel.connect(to: "moistcr1tikal")
             }
-            Button("connect to ryan"){
-                chatViewModel.connect(to: "itsRyanHiga")
-                chatViewModel.chats.append(ChatModel(id: UUID(), userName: "aahtest", message: "POGGERs"))
+            VStack {
+                ChatView()
+                    .environmentObject(chatViewModel)
             }
-            ScrollView {
-                ForEach(chatViewModel.chats){ chat in
-                    Text(chat.message)
-                }
-            }
-            .onChange(of: chatViewModel.currentStatus) { newValue in
-                print(newValue)
-            }
+//            HStack{
+//                TextField("Send a message", text: $chatViewModel.text)
+//                    .font(Font.system(size: 15, weight: .medium, design: .rounded))
+//                      .textFieldStyle(RoundedBorderTextFieldStyle())
+//                      .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.blue, lineWidth: 1))
+//                
+//                Label("Send", systemImage: "arrow.up")
+//                    padding(10)
+//                    .background(.ultraThickMaterial)
+//            }
         }
     }
 }

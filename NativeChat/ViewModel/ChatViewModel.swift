@@ -7,32 +7,62 @@
 
 import SwiftUI
 
-class ChatViewModel: ObservableObject {
-    
-    
-    @Published var currentStatus: ChatStatus = .none
-    @Published var chats: [ChatModel] = [ChatModel]()
 
+class ChatViewModel: ObservableObject, IRCServerDelegate, IRCChannelDelegate{
+    @Published var messages: [ChatMessageModel] = [ChatMessageModel]()
+    @Published var logs: [String] = [String]()
+    @Published var text: String = ""
+    var messageCount: Int = 0
+
+    let session = URLSession(configuration: .default)
     
-    enum ChatStatus: String{
-        case none = "Nothing has happened do something"
-        case tryConnect = "Trying to connect"
-        case opening = "Opening socket"
-        case alreadyConnected = "Already connected re-doing the thing"
-        case connecting = "Connecting to chat"
-        case connectionError = "Error while connecting to chat"
-        case connected = "We are connected to twitch chat"
-    }
-    // IRC Commands that can be send
-    enum ChatCommand {
-        case JOIN
-        case PART
-        case NICK
-        case PONG
+    let user = UserModel(
+        // Use your own details here:
+        username: Constants.username,
+        nick: Constants.nick,
+        password: Constants.oauthKey // not my real one!
+    )
+    var server: IRCServer
+    var channel: IRCChannel?
+    
+    init(){
+//        Connecting to twitches IRC server. "general server not a specific channel"
+        server = IRCServer(
+            hostname: "irc.chat.twitch.tv",
+            port: 6667,
+            user: user,
+            session: session
+        )
     }
     
-    func connect(to channel: String){
-        print("Connecting to \(channel)")
+    func connect(to channelName: String){
+        // Join the channel you want. This seems to be case-sensitive.
+        channel = server.join(channelName)
+        server.delegate = self
+        channel?.delegate = self
     }
     
+    func sendMessage(){
+        // Send a message:
+        channel?.send(text)
+    }
+    
+    func didRecieveMessage(_ server: IRCServer, message: String) {
+        logs.append(message)
+    }
+    
+    func didRecieveMessage(_ channel: IRCChannel, message: String) {
+        messageCount += 1
+        if messageCount > 40{
+                messages.removeFirst()
+        }
+        messages.append(rawMessageToMessageModel(for: message))
+
+    }
+    
+    
+    func rawMessageToMessageModel(for rawMessage: String)-> ChatMessageModel{
+        let splitted = rawMessage.split(separator: ":")
+        return ChatMessageModel(user: String(splitted.first ?? ""), content: String(splitted.last ?? ""))
+    }
 }
