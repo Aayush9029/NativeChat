@@ -16,4 +16,6 @@ struct Constants{
     // NickName is.. same as username unless.. 0.0
     static let nick = "aahyoushh"
     
+    // Maximum number of chat messages displayed. Wanna save memory? make it 1 or 2..
+    static let maxMessages = 40
 }

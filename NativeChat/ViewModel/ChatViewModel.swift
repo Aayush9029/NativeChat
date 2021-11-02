@@ -11,7 +11,7 @@ import SwiftUI
 class ChatViewModel: ObservableObject, IRCServerDelegate, IRCChannelDelegate{
     @Published var messages: [ChatMessageModel] = [ChatMessageModel]()
     @Published var logs: [String] = [String]()
-    @Published var text: String = ""
+    @Published var sendingText: String = ""
     var messageCount: Int = 0
 
     let session = URLSession(configuration: .default)
@@ -44,7 +44,9 @@ class ChatViewModel: ObservableObject, IRCServerDelegate, IRCChannelDelegate{
     
     func sendMessage(){
         // Send a message:
-        channel?.send(text)
+        channel?.send(sendingText)
+        messages.append(ChatMessageModel(user: Constants.username, content: sendingText))
+        sendingText = ""
     }
     
     func didRecieveMessage(_ server: IRCServer, message: String) {
@@ -53,7 +55,7 @@ class ChatViewModel: ObservableObject, IRCServerDelegate, IRCChannelDelegate{
     
     func didRecieveMessage(_ channel: IRCChannel, message: String) {
         messageCount += 1
-        if messageCount > 40{
+        if messageCount > Constants.maxMessages {
                 messages.removeFirst()
         }
         messages.append(rawMessageToMessageModel(for: message))
