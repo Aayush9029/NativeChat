@@ -5,3 +5,6 @@
 
  Native Twitch chat with built-in accessibility features for your mac.
   </div>
+
+
+[Work in progress](https://github.com/Aayush9029/NativeChat/projects)
