@@ -12,6 +12,10 @@ struct NativeChatApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onOpenURL { url in
+//                    Pass oauth between native twitch and or Oauth Library (github)
+                    print(url)
+                }
         }
     }
 }

@@ -50,10 +50,12 @@ class ChatViewModel: ObservableObject, IRCServerDelegate, IRCChannelDelegate{
     }
     
     func didRecieveMessage(_ server: IRCServer, message: String) {
+        //        Messages sent by the server.
         logs.append(message)
     }
     
     func didRecieveMessage(_ channel: IRCChannel, message: String) {
+        //        Messages sent by the users.
         messageCount += 1
         if messageCount > Constants.maxMessages {
                 messages.removeFirst()

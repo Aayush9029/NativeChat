@@ -7,7 +7,7 @@
 
 import Cocoa
 
-struct Constants{
+struct Constants {
 //    Channel that is connected to, might use url schemes & App Storage (when opening with NativeTwitch app)
     static var connectedTo: String = "moistcr1tikal"
 
