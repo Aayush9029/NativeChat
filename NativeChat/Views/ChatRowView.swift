@@ -12,13 +12,14 @@ struct ChatRowView: View {
     var body: some View {
         HStack(alignment: .top){
             Text(chat.user)
+                .font(.title3)
                 .bold()
                 .foregroundColor(Color(nsColor: ChatMessageModel.nameColor(username: chat.user)))
                 .foregroundColor(.secondary)
             Text(chat.content)
+                .font(.title3)
             Spacer()
         }
-        .padding(5)
     }
 }
 

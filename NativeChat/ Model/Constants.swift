@@ -5,11 +5,12 @@
 //  Created by Aayush Pokharel on 2021-11-02.
 //
 
-import Foundation
-
-
+import Cocoa
 
 struct Constants{
+//    Channel that is connected to, might use url schemes & App Storage (when opening with NativeTwitch app)
+    static var connectedTo: String = "moistcr1tikal"
+
     static let oauthKey = "oauth:"
     static let username = "aahyoushh"
     

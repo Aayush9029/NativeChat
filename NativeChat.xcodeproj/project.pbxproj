@@ -13,6 +13,8 @@
 		C21C24ED272DB498005F19AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21C24EC272DB498005F19AB /* Preview Assets.xcassets */; };
 		C2637AEB272E0450003AEB89 /* SharedStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2637AEA272E0450003AEB89 /* SharedStatus.swift */; };
 		C2D1988027310D4900B00B0B /* SendMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1987F27310D4900B00B0B /* SendMessageView.swift */; };
+		C2D198822731136600B00B0B /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D198812731136600B00B0B /* AppStorageKeys.swift */; };
+		C2D198842731137C00B00B0B /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D198832731137C00B00B0B /* Accessibility.swift */; };
 		C2FC77852730F50A00DD7F32 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC77842730F50A00DD7F32 /* UserModel.swift */; };
 		C2FC778A2730FB0F00DD7F32 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C24FA272DB527005F19AB /* ChatViewModel.swift */; };
 		C2FC778D2730FB9B00DD7F32 /* IRCServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC778C2730FB9B00DD7F32 /* IRCServer.swift */; };
@@ -34,6 +36,8 @@
 		C21C24FA272DB527005F19AB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		C2637AEA272E0450003AEB89 /* SharedStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStatus.swift; sourceTree = "<group>"; };
 		C2D1987F27310D4900B00B0B /* SendMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageView.swift; sourceTree = "<group>"; };
+		C2D198812731136600B00B0B /* AppStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKeys.swift; sourceTree = "<group>"; };
+		C2D198832731137C00B00B0B /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
 		C2FC77842730F50A00DD7F32 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C2FC778C2730FB9B00DD7F32 /* IRCServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRCServer.swift; sourceTree = "<group>"; };
 		C2FC778E2730FBB400DD7F32 /* IRCChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRCChannel.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 				C2637AEA272E0450003AEB89 /* SharedStatus.swift */,
 				C2FC77842730F50A00DD7F32 /* UserModel.swift */,
 				C2FC77942731010F00DD7F32 /* Constants.swift */,
+				C2D198832731137C00B00B0B /* Accessibility.swift */,
+				C2D198812731136600B00B0B /* AppStorageKeys.swift */,
 			);
 			path = " Model";
 			sourceTree = "<group>";
@@ -227,9 +233,11 @@
 				C2637AEB272E0450003AEB89 /* SharedStatus.swift in Sources */,
 				C2FC778F2730FBB400DD7F32 /* IRCChannel.swift in Sources */,
 				C21C24E8272DB498005F19AB /* ContentView.swift in Sources */,
+				C2D198822731136600B00B0B /* AppStorageKeys.swift in Sources */,
 				C2FC7799273102DF00DD7F32 /* ChatRowView.swift in Sources */,
 				C2D1988027310D4900B00B0B /* SendMessageView.swift in Sources */,
 				C21C24E6272DB498005F19AB /* NativeChatApp.swift in Sources */,
+				C2D198842731137C00B00B0B /* Accessibility.swift in Sources */,
 				C2FC7797273102D500DD7F32 /* ChatView.swift in Sources */,
 				C2FC77912730FC4400DD7F32 /* IRCInputParser.swift in Sources */,
 				C2FC77952731010F00DD7F32 /* Constants.swift in Sources */,
