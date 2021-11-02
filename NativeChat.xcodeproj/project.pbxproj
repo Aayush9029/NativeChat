@@ -11,6 +11,12 @@
 		C21C24E8272DB498005F19AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C24E7272DB498005F19AB /* ContentView.swift */; };
 		C21C24EA272DB498005F19AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21C24E9272DB498005F19AB /* Assets.xcassets */; };
 		C21C24ED272DB498005F19AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21C24EC272DB498005F19AB /* Preview Assets.xcassets */; };
+		C25F1A302731B2B300345639 /* NSTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F1A2F2731B2B300345639 /* NSTextField+Extension.swift */; };
+		C25F1A322731B2C500345639 /* NSView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F1A312731B2C500345639 /* NSView+Extension.swift */; };
+		C25F1A342731B2D600345639 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F1A332731B2D600345639 /* View+Extension.swift */; };
+		C25F1A362731B2F800345639 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F1A352731B2F800345639 /* SettingsView.swift */; };
+		C25F1A382731B4B600345639 /* NeatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F1A372731B4B600345639 /* NeatButton.swift */; };
+		C25F1A3A2731B4D600345639 /* LogText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F1A392731B4D600345639 /* LogText.swift */; };
 		C2637AEB272E0450003AEB89 /* SharedStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2637AEA272E0450003AEB89 /* SharedStatus.swift */; };
 		C2D1988027310D4900B00B0B /* SendMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1987F27310D4900B00B0B /* SendMessageView.swift */; };
 		C2D198822731136600B00B0B /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D198812731136600B00B0B /* AppStorageKeys.swift */; };
@@ -34,6 +40,12 @@
 		C21C24EC272DB498005F19AB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C21C24EE272DB498005F19AB /* NativeChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NativeChat.entitlements; sourceTree = "<group>"; };
 		C21C24FA272DB527005F19AB /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		C25F1A2F2731B2B300345639 /* NSTextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextField+Extension.swift"; sourceTree = "<group>"; };
+		C25F1A312731B2C500345639 /* NSView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Extension.swift"; sourceTree = "<group>"; };
+		C25F1A332731B2D600345639 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		C25F1A352731B2F800345639 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C25F1A372731B4B600345639 /* NeatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatButton.swift; sourceTree = "<group>"; };
+		C25F1A392731B4D600345639 /* LogText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogText.swift; sourceTree = "<group>"; };
 		C2637AEA272E0450003AEB89 /* SharedStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStatus.swift; sourceTree = "<group>"; };
 		C2D1987F27310D4900B00B0B /* SendMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageView.swift; sourceTree = "<group>"; };
 		C2D198812731136600B00B0B /* AppStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKeys.swift; sourceTree = "<group>"; };
@@ -83,10 +95,10 @@
 				C2D198852731145A00B00B0B /* Info.plist */,
 				C21C24E5272DB498005F19AB /* NativeChatApp.swift */,
 				C21C24E7272DB498005F19AB /* ContentView.swift */,
-				C2FC779C273108B000DD7F32 /* Extensions */,
 				C21C24F7272DB4DE005F19AB /* Views */,
 				C21C24F9272DB4E6005F19AB /* ViewModel */,
 				C21C24F8272DB4E3005F19AB /*  Model */,
+				C25F1A2E2731B2A500345639 /* Extensions */,
 				C2FC778B2730FB8500DD7F32 /* IRCServer */,
 				C21C24E9272DB498005F19AB /* Assets.xcassets */,
 				C21C24EE272DB498005F19AB /* NativeChat.entitlements */,
@@ -106,6 +118,7 @@
 		C21C24F7272DB4DE005F19AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C25F1A2C2731B25800345639 /* SettingsView */,
 				C2FC7796273102D500DD7F32 /* ChatView.swift */,
 				C2FC7798273102DF00DD7F32 /* ChatRowView.swift */,
 				C2D1987F27310D4900B00B0B /* SendMessageView.swift */,
@@ -141,6 +154,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C25F1A2C2731B25800345639 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				C25F1A352731B2F800345639 /* SettingsView.swift */,
+				C25F1A372731B4B600345639 /* NeatButton.swift */,
+				C25F1A392731B4D600345639 /* LogText.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		C25F1A2E2731B2A500345639 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C25F1A2F2731B2B300345639 /* NSTextField+Extension.swift */,
+				C25F1A312731B2C500345639 /* NSView+Extension.swift */,
+				C25F1A332731B2D600345639 /* View+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C2FC778B2730FB8500DD7F32 /* IRCServer */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,13 +182,6 @@
 				C2FC77902730FC4400DD7F32 /* IRCInputParser.swift */,
 			);
 			path = IRCServer;
-			sourceTree = "<group>";
-		};
-		C2FC779C273108B000DD7F32 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,15 +264,21 @@
 				C2D198822731136600B00B0B /* AppStorageKeys.swift in Sources */,
 				C2FC7799273102DF00DD7F32 /* ChatRowView.swift in Sources */,
 				C2D1988027310D4900B00B0B /* SendMessageView.swift in Sources */,
+				C25F1A3A2731B4D600345639 /* LogText.swift in Sources */,
 				C21C24E6272DB498005F19AB /* NativeChatApp.swift in Sources */,
 				C2D198842731137C00B00B0B /* Accessibility.swift in Sources */,
+				C25F1A302731B2B300345639 /* NSTextField+Extension.swift in Sources */,
+				C25F1A322731B2C500345639 /* NSView+Extension.swift in Sources */,
 				C2FC7797273102D500DD7F32 /* ChatView.swift in Sources */,
 				C2FC77912730FC4400DD7F32 /* IRCInputParser.swift in Sources */,
 				C2FC77952731010F00DD7F32 /* Constants.swift in Sources */,
 				C2FC778A2730FB0F00DD7F32 /* ChatViewModel.swift in Sources */,
 				C2FC77852730F50A00DD7F32 /* UserModel.swift in Sources */,
 				C2FC778D2730FB9B00DD7F32 /* IRCServer.swift in Sources */,
+				C25F1A342731B2D600345639 /* View+Extension.swift in Sources */,
 				C2FC77932730FC6E00DD7F32 /* ChatModel.swift in Sources */,
+				C25F1A362731B2F800345639 /* SettingsView.swift in Sources */,
+				C25F1A382731B4B600345639 /* NeatButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

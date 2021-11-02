@@ -11,9 +11,12 @@ enum AppStorageKeys: String {
     case chatSpacing = "Chat Row Spacing"
     case isMulitColored = "Is chat multicolored?"
     case fontSize = "Is Custom font size used?"
-
-    // Note: this will be chaotic and unusable for streams with huge "chatters", perfect for small streams.
-    // Show this alert when toggled.
     case speakChat = "Is TTS enabled?"
+    
+    case oauthToken = "User Oauth Key"
+    case username = "User name"
+    
+    case maxMessages = "Maximum number of messages displayed"
+    
 }
 

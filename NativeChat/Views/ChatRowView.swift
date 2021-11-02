@@ -20,12 +20,13 @@ struct ChatRowView: View {
                 .font(.title3)
             Spacer()
         }
+        .padding(.vertical, 2)
     }
 }
 
 struct ChatRowView_Previews: PreviewProvider {
     static var previews: some View {
-        List{
+        VStack{
         ChatRowView(chat: ChatMessageModel(user: "justinradio", content: "Hello, poggers i am new to chat pog"))
             ChatRowView(chat: ChatMessageModel(user: "justinradio", content: "Hello, poggers i am new to chat pog"))
             ChatRowView(chat: ChatMessageModel(user: "justinradio", content: "Hello, poggers i am new to chat pog"))

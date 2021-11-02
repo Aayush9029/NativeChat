@@ -11,11 +11,15 @@ struct ChatView: View {
     @EnvironmentObject var chatViewModel: ChatViewModel
     var body: some View {
         VStack(alignment: .leading){
-            ScrollView {
+            HStack{
+                Spacer()
+            }
+            ScrollView(.vertical, showsIndicators: false) {
                 ForEach(chatViewModel.messages, id:\.self){ chat in
                     ChatRowView(chat: chat)
                 }
             }
         }
+        .padding()
     }
 }

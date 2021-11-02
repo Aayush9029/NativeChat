@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var chatViewModel = ChatViewModel()
+    @EnvironmentObject var chatViewModel: ChatViewModel
     @State var message = ""
+    @State var channelName = ""
+    @State var connected = false
     var body: some View {
         VStack{
-            Button("connect to moistcr1tikal"){
-                chatViewModel.connect(to: "moistcr1tikal")
+            HStack{
+                if !connected{
+                    TextField("Channel", text: $channelName)
+                    if channelName.count > 2{
+                        Button("connect to \(channelName)"){
+                            chatViewModel.connect(to: channelName)
+                            connected = true
+                        }
+                    }
+                }
             }
             VStack {
                 ChatView()
@@ -22,6 +32,7 @@ struct ContentView: View {
             SendMessageView()
                 .environmentObject(chatViewModel)
         }
+        .background(VisualEffectView(material: .hudWindow, blendingMode: .behindWindow))
     }
 }
 

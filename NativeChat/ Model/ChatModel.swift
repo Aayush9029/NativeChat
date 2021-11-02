@@ -27,7 +27,7 @@ class ChatMessageModel: NSObject {
     
     // available colors
     static let colors: [NSColor] = [
-        NSColor(_colorLiteralRed: 0.5, green: 0.5, blue: 0, alpha: 1), // olive
+        NSColor(_colorLiteralRed: 1, green: 0.5, blue: 0, alpha: 1), // olive
         NSColor(_colorLiteralRed: 1, green: 0, blue: 0, alpha: 1), // red
         NSColor(_colorLiteralRed: 1, green: 1, blue: 0, alpha: 1), // yellow
         NSColor(_colorLiteralRed: 0, green: 0.5, blue: 0, alpha: 1), // green
