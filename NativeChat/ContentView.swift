@@ -11,16 +11,16 @@ struct ContentView: View {
     @EnvironmentObject var chatViewModel: ChatViewModel
     @State var message = ""
     @State var channelName = ""
-    @State var connected = false
+    @State var isConnected = false
     var body: some View {
         VStack{
             HStack{
-                if !connected{
+                if !isConnected{
                     TextField("Channel", text: $channelName)
                     if channelName.count > 2{
                         Button("connect to \(channelName)"){
                             chatViewModel.connect(to: channelName)
-                            connected = true
+                            isConnected = true
                         }
                     }
                 }

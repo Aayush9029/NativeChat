@@ -14,7 +14,8 @@ struct IRCInputParser {
         }
         
         if message.hasPrefix(":") {
-            let firstSpaceIndex = message.firstIndex(of: " ")!
+            
+            if let firstSpaceIndex = message.firstIndex(of: " "){
             let source = message[..<firstSpaceIndex]
             let rest = message[firstSpaceIndex...].trimmingCharacters(in: .whitespacesAndNewlines)
             
@@ -61,6 +62,7 @@ struct IRCInputParser {
                 } else {
                     return .serverMessage(server: server, message: rest)
                 }
+            }
             }
         }
         

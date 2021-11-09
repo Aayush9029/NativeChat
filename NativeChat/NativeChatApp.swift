@@ -16,10 +16,12 @@ struct NativeChatApp: App {
             ContentView()
                 .environmentObject(chatViewModel)
 
-                .onOpenURL { url in
-//                    Pass oauth between native twitch and or Oauth Library (github)
-                    print(url)
+            
+            .onOpenURL { url in
+                if let streamername = url.absoluteString.split(separator: "/").last{
+                    chatViewModel.connect(to: String(streamername))
                 }
+            }
         }
         .windowStyle(.hiddenTitleBar)
         Settings{
