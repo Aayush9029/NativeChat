@@ -12,11 +12,10 @@ enum AppStorageKeys: String {
     case isMulitColored = "Is chat multicolored?"
     case fontSize = "Is Custom font size used?"
     case speakChat = "Is TTS enabled?"
-    
+
     case oauthToken = "User Oauth Key"
     case username = "User name"
-    
-    case maxMessages = "Maximum number of messages displayed"
-    
-}
 
+    case maxMessages = "Maximum number of messages displayed"
+
+}

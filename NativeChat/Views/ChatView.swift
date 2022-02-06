@@ -10,12 +10,12 @@ import SwiftUI
 struct ChatView: View {
     @EnvironmentObject var chatViewModel: ChatViewModel
     var body: some View {
-        VStack(alignment: .leading){
-            HStack{
+        VStack(alignment: .leading) {
+            HStack {
                 Spacer()
             }
             ScrollView(.vertical, showsIndicators: false) {
-                ForEach(chatViewModel.messages, id:\.self){ chat in
+                ForEach(chatViewModel.messages, id: \.self) { chat in
                     ChatRowView(chat: chat)
                 }
             }

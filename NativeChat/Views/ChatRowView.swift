@@ -10,7 +10,7 @@ import SwiftUI
 struct ChatRowView: View {
     let chat: ChatMessageModel
     var body: some View {
-        HStack(alignment: .top){
+        HStack(alignment: .top) {
             Text(chat.user)
                 .font(.title3)
                 .bold()
@@ -26,7 +26,7 @@ struct ChatRowView: View {
 
 struct ChatRowView_Previews: PreviewProvider {
     static var previews: some View {
-        VStack{
+        VStack {
         ChatRowView(chat: ChatMessageModel(user: "justinradio", content: "Hello, poggers i am new to chat pog"))
             ChatRowView(chat: ChatMessageModel(user: "justinradio", content: "Hello, poggers i am new to chat pog"))
             ChatRowView(chat: ChatMessageModel(user: "justinradio", content: "Hello, poggers i am new to chat pog"))

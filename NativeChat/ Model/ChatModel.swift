@@ -11,20 +11,19 @@ class ChatMessageModel: NSObject {
     // user name and message content
     var user: String
     var content: String
-    
+
     // initializer
     init(user: String, content: String) {
         self.user = user
         self.content = content
     }
-    
-    
+
     // assign color to username
     class func nameColor(username: String) -> NSColor {
         let index = abs(username.hash % 1000) / 100
         return colors[index]
     }
-    
+
     // available colors
     static let colors: [NSColor] = [
         NSColor(_colorLiteralRed: 1, green: 0.5, blue: 0, alpha: 1), // olive
@@ -38,5 +37,5 @@ class ChatMessageModel: NSObject {
         NSColor(_colorLiteralRed: 0.5, green: 0, blue: 0.5, alpha: 1), // purple
         NSColor(_colorLiteralRed: 1, green: 0.5, blue: 0, alpha: 1) // orange
     ]
-    
+
 }

@@ -13,49 +13,49 @@ public class IRCServer {
             guard let delegate = delegate else {
                 return
             }
-            
+
             buffer.forEach { (line) in
                 delegate.didRecieveMessage(self, message: line)
             }
             buffer = []
         }
     }
-    
+
     private var buffer = [String]()
     private var session: URLSession
     private var task: URLSessionStreamTask!
     private var channels = [IRCChannel]()
-    
+
     public required init(hostname: String, port: Int, user: UserModel, session: URLSession) {
         self.session = session
-        
+
         task = session.streamTask(withHostName: hostname, port: port)
         task.resume()
         read()
-        
+
         send("PASS \(user.password)")
         send("USER \(user.username)")
         send("NICK \(user.nick)")
     }
-    
+
     public class func connect(_ hostname: String, port: Int, user: UserModel, session: URLSession = URLSession.shared) -> Self {
         return self.init(hostname: hostname, port: port, user: user, session: session)
     }
-    
+
     private func read() {
-        task.readData(ofMinLength: 0, maxLength: 9999, timeout: 0) { (data, atEOF, error) in
+        task.readData(ofMinLength: 0, maxLength: 9999, timeout: 0) { (data, _, _) in
             guard let data = data, let message = String(data: data, encoding: .utf8) else {
                 return
             }
-            
+
             for line in message.split(separator: "\r\n") {
                 self.processLine(String(line))
             }
-            
+
             self.read()
         }
     }
-    
+
     private func processLine(_ message: String) {
         let input = IRCInputParser.parseServerMessage(message)
         switch input {
@@ -89,7 +89,7 @@ public class IRCServer {
             print("Unknown: \(message)")
         }
     }
-    
+
     public func send(_ message: String) {
         task.write((message + "\r\n").data(using: .utf8)!, timeout: 0) { (error) in
             if let error = error {
@@ -99,7 +99,7 @@ public class IRCServer {
             }
         }
     }
-    
+
     public func join(_ channelName: String) -> IRCChannel {
         send("JOIN #\(channelName)")
         let channel = IRCChannel(name: channelName, server: self)
@@ -111,7 +111,6 @@ public class IRCServer {
 public protocol IRCServerDelegate {
     func didRecieveMessage(_ server: IRCServer, message: String)
 }
-
 
 public protocol IRCChannelDelegate {
     func didRecieveMessage(_ channel: IRCChannel, message: String)

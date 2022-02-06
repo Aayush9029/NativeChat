@@ -12,32 +12,31 @@ struct IRCInputParser {
         if message.hasPrefix("PING") {
             return .ping
         }
-        
+
         if message.hasPrefix(":") {
-            
-            if let firstSpaceIndex = message.firstIndex(of: " "){
+
+            if let firstSpaceIndex = message.firstIndex(of: " ") {
             let source = message[..<firstSpaceIndex]
             let rest = message[firstSpaceIndex...].trimmingCharacters(in: .whitespacesAndNewlines)
-            
+
             if rest.hasPrefix("PRIVMSG") {
                 let remaining = rest[rest.index(message.startIndex, offsetBy: 8)...]
-                
+
                 if remaining.hasPrefix("#") {
                     let split = remaining.components(separatedBy: ":")
                     let channel = split[0].trimmingCharacters(in: CharacterSet(charactersIn: " #"))
                     let user = source.components(separatedBy: "!")[0].trimmingCharacters(in: CharacterSet(charactersIn: ":"))
                     let message = split[1]
-                    
+
                     return .channelMessage(channel: channel, user: user, message: message)
                 }
             } else if rest.hasPrefix("JOIN") {
                 let user = source.components(separatedBy: "!")[0].trimmingCharacters(in: CharacterSet(charactersIn: ":"))
                 let channel = rest[rest.index(message.startIndex, offsetBy: 5)...].trimmingCharacters(in: CharacterSet(charactersIn: "# "))
                 return .joinMessage(user: user, channel: channel)
-            } else{
+            } else {
                 let server = source.trimmingCharacters(in: CharacterSet(charactersIn: ": "))
-                
-                
+
 //                if rest.hasSuffix(":End of /NAMES list.") {
 //                    let scanner = Scanner(string: rest)
 //                    scanner.scanUpTo("#", into: nil)
@@ -55,7 +54,7 @@ struct IRCInputParser {
 //
 //                    return .userList(channel: channelName, users: users)
 //                }
-                
+
                 if rest.contains(":") {
                     let serverMessage = rest.components(separatedBy: ":")[1]
                     return .serverMessage(server: server, message: serverMessage)
@@ -65,7 +64,7 @@ struct IRCInputParser {
             }
             }
         }
-        
+
         return .unknown(raw: message)
     }
 }
@@ -79,7 +78,7 @@ enum ChatInput: Equatable {
     case userList(channel: String, users: [String])
 }
 
-func ==(lhs: ChatInput, rhs: ChatInput) -> Bool{
+func ==(lhs: ChatInput, rhs: ChatInput) -> Bool {
     switch (lhs, rhs) {
     case (.ping, .ping):
         return true

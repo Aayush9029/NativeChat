@@ -11,7 +11,7 @@ struct SendMessageView: View {
     @EnvironmentObject var chatViewModel: ChatViewModel
     @State var isButtonHovered: Bool = false
     var body: some View {
-        HStack{
+        HStack {
             TextField("Send a message", text: $chatViewModel.sendingText)
                 .padding(5)
                 .font(.title2)
@@ -19,7 +19,7 @@ struct SendMessageView: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 10).stroke(.gray, lineWidth: 2)
                 )
-                
+
             Label("Send", systemImage: "arrow.up.circle.fill")
                 .font(.title3.bold())
                 .foregroundColor(isButtonHovered ? .green : .gray)

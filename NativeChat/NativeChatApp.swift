@@ -16,15 +16,14 @@ struct NativeChatApp: App {
             ContentView()
                 .environmentObject(chatViewModel)
 
-            
             .onOpenURL { url in
-                if let streamername = url.absoluteString.split(separator: "/").last{
+                if let streamername = url.absoluteString.split(separator: "/").last {
                     chatViewModel.connect(to: String(streamername))
                 }
             }
         }
         .windowStyle(.hiddenTitleBar)
-        Settings{
+        Settings {
             SettingsView()
                 .background(VisualEffectView(material: .popover, blendingMode: .behindWindow))
                 .environmentObject(chatViewModel)

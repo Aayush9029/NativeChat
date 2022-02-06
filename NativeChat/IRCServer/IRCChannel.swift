@@ -8,12 +8,12 @@
 import Foundation
 
 public class IRCChannel {
-    public var delegate: IRCChannelDelegate? = nil {
+    public var delegate: IRCChannelDelegate? {
         didSet {
             guard let delegate = delegate else {
                 return
             }
-            
+
             buffer.forEach { (line) in
                 delegate.didRecieveMessage(self, message: line)
             }
@@ -23,13 +23,12 @@ public class IRCChannel {
     public let name: String
     public let server: IRCServer
     private var buffer = [String]()
-    
+
     public init(name: String, server: IRCServer) {
         self.name = name
         self.server = server
     }
-    
-    
+
     func receive(_ text: String) {
         if let delegate = self.delegate {
             DispatchQueue.main.sync {
@@ -39,9 +38,8 @@ public class IRCChannel {
             buffer.append(text)
         }
     }
-    
+
     public func send(_ text: String) {
         server.send("PRIVMSG #\(name) :\(text)")
     }
 }
-
