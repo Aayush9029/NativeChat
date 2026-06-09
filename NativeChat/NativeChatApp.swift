@@ -9,18 +9,13 @@ import SwiftUI
 
 @main
 struct NativeChatApp: App {
-    @StateObject var chatViewModel = ChatViewModel()
+    @StateObject private var chatViewModel = ChatViewModel()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(chatViewModel)
-
-            .onOpenURL { url in
-                if let streamername = url.absoluteString.split(separator: "/").last {
-                    chatViewModel.connect(to: String(streamername))
-                }
-            }
+                .onOpenURL(perform: openURL)
         }
         .windowStyle(.hiddenTitleBar)
         Settings {
@@ -30,5 +25,10 @@ struct NativeChatApp: App {
                 .frame(width: 350, height: chatViewModel.showingLogs ? 600 : 300)
 
         }
+    }
+
+    private func openURL(_ url: URL) {
+        guard let streamername = url.absoluteString.split(separator: "/").last else { return }
+        chatViewModel.connect(to: String(streamername))
     }
 }

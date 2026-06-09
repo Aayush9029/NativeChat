@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 public class IRCChannel {
     public var delegate: IRCChannelDelegate? {
         didSet {
@@ -31,9 +32,7 @@ public class IRCChannel {
 
     func receive(_ text: String) {
         if let delegate = self.delegate {
-            DispatchQueue.main.sync {
-                delegate.didRecieveMessage(self, message: text)
-            }
+            delegate.didRecieveMessage(self, message: text)
         } else {
             buffer.append(text)
         }

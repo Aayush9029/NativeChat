@@ -35,7 +35,7 @@ struct SendMessageView: View {
                     }
                 })
                 .onTapGesture {
-                    chatViewModel.sendMessage()
+                    chatViewModel.sendMessageButtonTapped()
                 }
         }
         .padding()

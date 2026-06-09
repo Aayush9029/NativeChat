@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-class ChatViewModel: ObservableObject, IRCServerDelegate, IRCChannelDelegate {
+@MainActor
+final class ChatViewModel: ObservableObject, IRCServerDelegate, IRCChannelDelegate {
     @Published var messages: [ChatMessageModel] = [ChatMessageModel]()
     @Published var currentStatus: ChatStatus = .none
 
@@ -28,7 +29,6 @@ class ChatViewModel: ObservableObject, IRCServerDelegate, IRCChannelDelegate {
     var channel: IRCChannel?
 
     init() {
-//        Default initializer
         user = UserModel.exampleUser
         server = IRCServer(
             hostname: "irc.chat.twitch.tv",
@@ -56,26 +56,23 @@ class ChatViewModel: ObservableObject, IRCServerDelegate, IRCChannelDelegate {
         channel?.delegate = self
     }
 
-    func sendMessage() {
-        // Send a message:
+    func sendMessageButtonTapped() {
+        guard !sendingText.isEmpty else { return }
         channel?.send(sendingText)
         messages.append(ChatMessageModel(user: username, content: sendingText))
         sendingText = ""
     }
 
     func didRecieveMessage(_ server: IRCServer, message: String) {
-        //        Messages sent by the server.
         logs.append(message)
     }
 
     func didRecieveMessage(_ channel: IRCChannel, message: String) {
-        //        Messages sent by the users.
         messageCount += 1
         if messageCount > maxMessages {
-                messages.removeFirst()
+            messages.removeFirst()
         }
         messages.append(rawMessageToMessageModel(for: message))
-
     }
 
     func addToLogs(response: String? = nil, hidestatus: Bool? = false) {

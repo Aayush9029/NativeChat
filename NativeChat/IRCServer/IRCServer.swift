@@ -6,8 +6,12 @@
 //
 
 import Foundation
+import os
 
+@MainActor
 public class IRCServer {
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "NativeChat", category: "IRCServer")
+
     public var delegate: IRCServerDelegate? {
         didSet {
             guard let delegate = delegate else {
@@ -43,16 +47,19 @@ public class IRCServer {
     }
 
     private func read() {
-        task.readData(ofMinLength: 0, maxLength: 9999, timeout: 0) { (data, _, _) in
+        task.readData(ofMinLength: 0, maxLength: 9999, timeout: 0) { [weak self] (data, _, _) in
             guard let data = data, let message = String(data: data, encoding: .utf8) else {
                 return
             }
 
-            for line in message.split(separator: "\r\n") {
-                self.processLine(String(line))
-            }
+            Task { @MainActor in
+                guard let self else { return }
+                for line in message.split(separator: "\r\n") {
+                    self.processLine(String(line))
+                }
 
-            self.read()
+                self.read()
+            }
         }
     }
 
@@ -86,16 +93,17 @@ public class IRCServer {
                 }
             })
         default:
-            print("Unknown: \(message)")
+            logger.notice("Unknown IRC message: \(message)")
         }
     }
 
     public func send(_ message: String) {
+        let logger = logger
         task.write((message + "\r\n").data(using: .utf8)!, timeout: 0) { (error) in
             if let error = error {
-                print("Failed to send: \(String(describing: error))")
+                logger.error("Failed to send IRC message: \(error.localizedDescription)")
             } else {
-                print("Sent!")
+                logger.debug("Sent IRC message")
             }
         }
     }
@@ -108,10 +116,12 @@ public class IRCServer {
     }
 }
 
+@MainActor
 public protocol IRCServerDelegate {
     func didRecieveMessage(_ server: IRCServer, message: String)
 }
 
+@MainActor
 public protocol IRCChannelDelegate {
     func didRecieveMessage(_ channel: IRCChannel, message: String)
 }
